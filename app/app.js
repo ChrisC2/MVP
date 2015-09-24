@@ -2,11 +2,9 @@
 
 // Declare app level module which depends on views, and components
 var myApp = angular.module('myApp', [])
-
+//-----------------------------------------------------------------------
+// Controller creates the Google Maps View and fetches Current Location
 .controller("MapsController", function ($scope, shareCoordinates){
-  $scope.lat;
-  $scope.lng;
-
   $scope.initMap = function () {
     var el = document.getElementById("map");
     //Create new map view
@@ -24,7 +22,7 @@ var myApp = angular.module('myApp', [])
              lat: position.coords.latitude,
              lng: position.coords.longitude
            };
-           //Store coordinates in service for access;
+           //Store coordinates in service for access to Igcontroller;
            shareCoordinates.setLat(position.coords.latitude);
            shareCoordinates.setLng(position.coords.longitude);
            console.log("lat: ", shareCoordinates.getLat());
@@ -44,34 +42,39 @@ var myApp = angular.module('myApp', [])
 
 
 });
-
-
+//----------------------------------------------------------------------------
+//Instagram controller. Calls GET request to IG API through factory
 myApp.controller("IgController", function ($scope, DataFactory, shareCoordinates ){
-
+//Array stores photo URL's
 $scope.photoStorage = [];
+//resets the photoStorage array to an empty array
 $scope.reset = function () {
   $scope.photoStorage = [];
 }
 $scope.getPhotos = function () {
+//filters GET request object
 var fetch = function () {
   var results = DataFactory.getData()
-    .then(function (data) {
-      data.data.forEach(function (item) {
+    .then(function (resObject) {
+      resObject.data.forEach(function (item) {
         var urls = item.images.standard_resolution.url
         $scope.photoStorage.push(urls);
       })
         console.log("controller storage: ", $scope.photoStorage)
       });
     }
+    // If there is nothing in $scope.photoStorage fetch and populate the array
   if($scope.photoStorage[0] === null) {
     fetch();
     } else {
+      // Else the array has already been populated. Clear first then repopulate with new images
       $scope.reset();
       fetch();
     }
   }
 });
-
+//--------------------------------------------------------------------------
+//Service created to store and reference location variables for Instagram's API call
 myApp.service("shareCoordinates", function () {
   var lat;
   var lng;
@@ -91,7 +94,8 @@ myApp.service("shareCoordinates", function () {
   }
 
 })
-
+//----------------------------------------------------------------------------
+//Factory calls Instagram API. Fetches Data using the coordinates stored within Service
 myApp.factory("DataFactory", function ($http, shareCoordinates) {
 
 var getData = function (search) {
@@ -100,25 +104,11 @@ var getData = function (search) {
     url: "https://api.instagram.com/v1/media/search?lat=" + shareCoordinates.getLat() + "&lng="+ shareCoordinates.getLng() + "&distance=5000&access_token=" + tokenKey.key,
     data: search
   }).then(function(res) {
+    console.log(res.data)
     return res.data
   })
-
-
-  }
-  var postMap = function (map) {
-    return $http({
-      method: "POST",
-      url: map,
-      data: map
-    })
-    .then(function (resp) {
-      console.log(resp.data)
-      return resp.data
-    });
-  }
-
+}
   return {
-    // postMap: postMap,
     getData: getData
   }
 })
