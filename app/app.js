@@ -30,7 +30,7 @@ var myApp = angular.module('myApp', [])
            console.log("lat: ", shareCoordinates.getLat());
            console.log("lng :", shareCoordinates.getLng())
            infoWindow.setPosition(pos); //takes object of coordinates
-           infoWindow.setContent('You are here');
+           infoWindow.setContent('You are here  ');
            map.setCenter(pos);
 
          }, function() {
@@ -93,10 +93,11 @@ myApp.service("shareCoordinates", function () {
 })
 
 myApp.factory("DataFactory", function ($http, shareCoordinates) {
+
 var getData = function (search) {
   return $http({
     method: "GET",
-    url: "https://api.instagram.com/v1/media/search?lat=" + shareCoordinates.getLat() + "&lng="+ shareCoordinates.getLng() + "&distance=5000&access_token=22125417.d904cd4.44abd06ef59d43e5b0fc7e9b4f347ebb",
+    url: "https://api.instagram.com/v1/media/search?lat=" + shareCoordinates.getLat() + "&lng="+ shareCoordinates.getLng() + "&distance=5000&access_token=" + tokenKey.key,
     data: search
   }).then(function(res) {
     return res.data
