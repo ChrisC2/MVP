@@ -1,51 +1,82 @@
 /* app css stylesheet */
-
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
-}
-
-.menu:before {
-  content: "[";
-}
-
-.menu:after {
-  content: "]";
-}
-
-.menu > li {
-  display: inline;
-}
-
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
-}
-
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
-}
-
 html, body {
   height: 100%;
-  margin: 0;
+
   padding: 0;
+  font-family: 'Lato', sans-serif;
+  width: auto; margin: 0 auto;
+  text-align: center;
+
 }
 #map {
   height:200px;
   width:300px;
+  top:30;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  border: 5px solid cadetblue;
+
 }
-#photo-container {
-  float:left;
+.photo-container {
+
+
 }
 #map-container {
-  float:inherit;
+  margin: auto;
+  width: auto;
+  height:auto;
+  padding-top: 20px;
+  padding-bottom: 5px;
+
+
+
 }
 
 img {
+  border-radius: 50px;
+  padding: 20px;
+  align-content: center;
   height: auto;
-  width: 300px
+  width: 300px;
+  display:inline-block;
+  margin: 0 auto;
+
+
+}
+.action-button
+{
+  padding: 10px;
+	align-content: center;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 20px;
+	font-family: 'Oswald';
+	font-size: 20px;
+	color: #FFF;
+	text-decoration: none;
+
+}
+
+.blue
+{
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+}
+h1 {
+  font-family: 'Oswald';
+}
+header {
+  color: #F5F5F5;
+  background-color: cadetblue;
+    padding-top: 20px;
+    width:100%;
+  }
+.photos {
+height: auto;
+background-image: linear-gradient(cadetblue,#F5F5F5);
+
 }

@@ -9,22 +9,29 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="app.css">
+  <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700' rel='stylesheet' type='text/css'>
 
   <script src="https://maps.googleapis.com/maps/api/js">
   </script>  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
 </head>
 <body>
+  <header class="container-header">
+  <h1>MVP</h1>
+    </header>
 <div id="map-container"ng-controller = "MapsController">
   <div ng-init= "initMap()">
   <div id="map"></div>
 </div>
-<div id= "photo-container" ng-controller = "IgController">
-  <button ng-click="getPhotos(); reset()">Click for Photos</button>
-  <div id="pictures" ng-repeat="photo in photoStorage"></div>
-  <img ng-repeat="photo in photoStorage" ng-src='{{ photo }}'/>
 </div>
-
+<div class= "photo-container" ng-controller = "IgController">
+<button class="action-button shadow animate blue center" ng-click="getPhotos()">Click for Photos</button>
+<p></p>
+<div class='photos'>
+<div ng-repeat="photo in photoStorage"></div>
+  <img class= "center" ng-repeat="photo in photoStorage" ng-src='{{ photo }}'/>
+</div>
+</div>
 </body>
 </html>
 

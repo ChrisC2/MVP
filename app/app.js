@@ -49,19 +49,27 @@ var myApp = angular.module('myApp', [])
 myApp.controller("IgController", function ($scope, DataFactory, shareCoordinates ){
 
 $scope.photoStorage = [];
+$scope.reset = function () {
+  $scope.photoStorage = [];
+}
 $scope.getPhotos = function () {
-  var lat = shareCoordinates.getLat();
-  var lng = shareCoordinates.getLng();
-  console.log(lat, lng);
+var fetch = function () {
   var results = DataFactory.getData()
     .then(function (data) {
       data.data.forEach(function (item) {
         var urls = item.images.standard_resolution.url
         $scope.photoStorage.push(urls);
       })
-console.log("controller storage: ", $scope.photoStorage)
-});
-}
+        console.log("controller storage: ", $scope.photoStorage)
+      });
+    }
+  if($scope.photoStorage[0] === null) {
+    fetch();
+    } else {
+      $scope.reset();
+      fetch();
+    }
+  }
 });
 
 myApp.service("shareCoordinates", function () {
