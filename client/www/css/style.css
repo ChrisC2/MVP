@@ -1,0 +1,97 @@
+html, body {
+  height: 100%;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  width: auto; margin: 0 auto;
+  text-align: center;
+}
+#map {
+  height:250px;
+  width: 100%;
+  top: 40px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+
+}
+
+#map-container {
+  margin: auto;
+  width: auto;
+  height:auto;
+  padding-bottom: 5px;
+}
+
+img {
+  padding: 0px;
+  align-content: center;
+  height: auto;
+  width: 150px;
+  display:inline-block;
+  margin: 0 auto;
+
+
+}
+button {
+  color: cadetblue !important;
+  border-color: cadetblue !important;
+  padding: 20px;
+  position:relative;
+	align-content: center;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 20px;
+	font-size: 20px;
+	text-decoration: none;
+  margin-top: 40px !important;
+  margin-bottom: 20px !important;
+
+}
+
+.blue
+{
+	background-color: #3498DB;
+	border-bottom: 5px solid #2980B9;
+	text-shadow: 0px -2px #2980B9;
+}
+h1 {
+  font-family: 'Oswald';
+}
+.header {
+  font-family:'Lobster', sans-serif !important;
+  background-color: cadetblue !important;
+  padding-top: 20px;
+  width:100%;
+  }
+.photos {
+background-image: linear-gradient(cadetblue,#F5F5F5);
+
+}
+.photo-container {
+  display: block;
+  top: 400px;
+  margin-top: auto
+}
+.title {
+  font-family:'Lobster', sans-serif !important;
+  font-size: 40px !important;
+  color: white !important;
+}
+
+.spinner svg {
+  width: 50px;
+  height: 50px;
+  stroke: cadetblue ;
+  fill: cadetblue ;
+}
+.loading-text {
+  color: white ;
+}
+.my-modal {
+  top: 40% !important;
+  bottom: 40% !important;
+  overflow: visible !important;
+  width: 100% !important;
+  background-color: cadetblue !important;
+}

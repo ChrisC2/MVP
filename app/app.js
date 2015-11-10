@@ -44,7 +44,7 @@ var myApp = angular.module('myApp', [])
 });
 //----------------------------------------------------------------------------
 //Instagram controller. Calls GET request to IG API through factory
-myApp.controller("IgController", function ($scope, DataFactory, shareCoordinates ){
+myApp.controller("IgController", function ($scope, InstagramService){
 //Array stores photo URL's
 $scope.photoStorage = [];
 //resets the photoStorage array to an empty array
@@ -54,7 +54,7 @@ $scope.reset = function () {
 $scope.getPhotos = function () {
 //filters GET request object
 var fetch = function () {
-  var results = DataFactory.getData()
+  var results = InstagramService.getData()
     .then(function (resObject) {
       resObject.data.forEach(function (item) {
         var urls = item.images.standard_resolution.url
