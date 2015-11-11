@@ -1,7 +1,7 @@
 {
   "name": "spectacle",
   "scripts" : {
-    "start": "node server.js"
+    "start": "server/node server.js"
   },
   "dependencies": {
     "ajax-request": "^1.2.1",
