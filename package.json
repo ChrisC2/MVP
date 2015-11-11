@@ -3,9 +3,11 @@
   "dependencies": {
     "ajax-request": "^1.2.1",
     "bluebird": "^3.0.5",
+    "bower": "^1.6.5",
     "express": "^4.13.3",
     "https": "^1.0.0",
     "morgan": "^1.6.1",
+    "request": "^2.65.0",
     "restify": "^4.0.3"
   }
 }
