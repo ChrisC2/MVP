@@ -1,8 +1,6 @@
 {
   "name": "spectacle",
-  "scripts" : {
-    "start": "server/node server.js"
-  },
+  "main": "server/server.js",
   "dependencies": {
     "ajax-request": "^1.2.1",
     "bluebird": "^3.0.5",
