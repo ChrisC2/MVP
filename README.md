@@ -2,8 +2,8 @@
 Find What's Happening Around You!
 
 **Description:** 
-This is a small project I built within a day.
-Its a full stack mobile app which allows users to view trending Instagram photos taken within a 5 mile radius of their current location.
+This is a small project I built within a day and later decided on converting it into Ionic to gain familiarity with the new hybrid framework.
+Spectacle is a full stack mobile app which allows users to view trending Instagram photos taken within a 5 mile radius of their current location.
 
 * Utilized Ionic’s hybrid platform to create a mobile compatible app and responsive interface
 * Employed Google Maps & Geolocation API to fetch a user’s current location and render their location on a map
